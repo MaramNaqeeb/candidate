@@ -22,5 +22,6 @@ export default class apiHelpers {
     cy.candidate("PUT", `${baseUrl}/web/index.php/api/v2/recruitment/candidates/${candidateId}/shortlist`, shortlistStatus());
   }
  
+  
 
 }

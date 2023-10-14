@@ -7,5 +7,4 @@ declare namespace Cypress {
 function getByCy(field: string) {
   return cy.get(`[placeholder='${field}']`);
 }
-
 Cypress.Commands.add("getByCy", getByCy);

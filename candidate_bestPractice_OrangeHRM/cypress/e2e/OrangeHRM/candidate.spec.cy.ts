@@ -10,7 +10,6 @@ describe("OrangeHRM-create and edit vacancy", () => {
     candidateObj.loginFUNC("Admin", "admin123");
     apiHelpers.addCandidate()
 
-      
   });
 
   it("TCs2: OrangeHRM-edit vacancy", () => {

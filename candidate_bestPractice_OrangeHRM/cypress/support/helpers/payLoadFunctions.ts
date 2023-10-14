@@ -25,6 +25,7 @@ export const newCandidate = (vacancy?: candidatePayload): any => {
     }
     return shortlist
 
+    
   }
   
 
