@@ -8,7 +8,6 @@ export default class apiHelpers {
     return cy.intercept(
       "GET",URLs.intercept
     );
-    
   }
 
 }

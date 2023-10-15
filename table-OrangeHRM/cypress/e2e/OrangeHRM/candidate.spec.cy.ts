@@ -16,5 +16,4 @@ describe("login admin", () => {
       loginObj.findRows(data.response?.body.meta.total);
     });
   });
-  
 })

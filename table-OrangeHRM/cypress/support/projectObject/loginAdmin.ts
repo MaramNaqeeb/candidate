@@ -25,6 +25,7 @@ class login {
       .children()
       .should("have.length", RowsLength);
   }
+  
 }
 
 export default login;
