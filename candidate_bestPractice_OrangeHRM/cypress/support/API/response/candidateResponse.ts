@@ -38,4 +38,5 @@ export interface candidateResponse {
     "meta": [],
     "rels": []
     
+    
 }
