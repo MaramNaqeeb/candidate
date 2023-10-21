@@ -1,5 +1,5 @@
 const baseUrl = Cypress.config().baseUrl;
-import { newEmployee, newUser } from "./payLoadFunctions";
+import {newEmployeeData, newUserData } from "./payLoadFunctions";
 export let empId: any;
 export let vacancyId: any;
 export var candidateId: any;
@@ -12,11 +12,11 @@ export const URLs = {
 
 export default class apiHelpers {
   static addEmployee() {
-    cy.employee("POST", URLs.employee, newEmployee())
+    cy.employee("POST", URLs.employee, newEmployeeData())
       .then((response) => {
         empId = response.data.empNumber;
       })
 
-      .then(() => cy.user("POST", URLs.user, newUser()));
+      .then(() => cy.user("POST", URLs.user, newUserData()));
   }
 }
