@@ -50,6 +50,9 @@ class Candidate {
 
     this.elements.note().type("good");
     this.elements.submitBtn().click();
+    this.elements.loadingIndicator().should("not.exist");
+    cy.get('.oxd-text.oxd-text--p.oxd-text--subtitle-2').should('contain','Status: Interview Scheduled')
+    // cy.contains('Interview Scheduled').should('exist')
   }
 }
 

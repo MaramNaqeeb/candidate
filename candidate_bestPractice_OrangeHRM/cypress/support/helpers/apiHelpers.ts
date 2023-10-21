@@ -54,11 +54,16 @@ export default class apiHelpers {
     cy.visit(`/web/index.php/recruitment/addCandidate/${candidateId}`, {
       failOnStatusCode: false,
     });
-    cy.candidate(
+    cy.request(
       "PUT",
       `${baseUrl}/web/index.php/api/v2/recruitment/candidates/${candidateId}/shortlist`,
       shortlistStatus()
-    );
+    ).then((response)=>{
+      expect(response.status).eq(200)
+
+    })
+
+
   }
   static deleteCandidate(){
     cy.api('DELETE',URLs.delete,deleteCandidate())
