@@ -1,6 +1,6 @@
 import generatingFunctions from "./genericFunctions";
-import { employeePayload } from "../API/payload/employeePayload";
-import { userPayload } from "../API/payload/userPayload";
+import { EmployeePayload } from "../API/payload/employeePayload";
+import { UserPayload } from "../API/payload/userPayload";
 import { empId } from "./apiHelpers";
 export const firstName: string = ` Jane `;
 export const lastName: string = ` Lother ${generatingFunctions.randomNumber()}`;
@@ -10,7 +10,7 @@ const employeeId: any = `${generatingFunctions.randomNumber()}`;
 export const username: string = `Johnj${generatingFunctions.randomNumber()}`;
 export const password:string=`123qwe,./${generatingFunctions.randomNumber()}`
 
-export const newEmployeeData = (e?: employeePayload): any => {
+export const newEmployeeData = (e?: EmployeePayload): any => {
   var employee: any = {
     empPicture: null,
     employeeId: employeeId,
@@ -20,7 +20,7 @@ export const newEmployeeData = (e?: employeePayload): any => {
   };
   return employee;
 };
-export const newUserData= (u?: userPayload): any => {
+export const newUserData= (u?: UserPayload): any => {
   var user: any = {
     empNumber: empId,
     password: password,

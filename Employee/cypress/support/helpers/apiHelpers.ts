@@ -10,6 +10,7 @@ export const URLs = {
   delete: `${baseUrl}/web/index.php/api/v2/pim/employees`,
 };
 
+
 export default class apiHelpers {
   static addEmployee() {
     cy.employee("POST", URLs.employee, newEmployeeData())

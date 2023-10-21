@@ -18,7 +18,6 @@ class Employee {
     this.elements.logoutDropdown().click()
     this.elements.logoutBtn().click({ multiple: true })
   }
-
 }
 
 export default Employee;

@@ -9,7 +9,6 @@ describe("OrangeHRM-loginAdmin prerequisite", () => {
     cy.visit("/");
     employeeObj.loginFUNC("Admin", "admin123");
   });
-
   it("TCs2: OrangeHRM-addEmployee", () => {
     apiHelpers.addEmployee();
     employeeObj.logout();
