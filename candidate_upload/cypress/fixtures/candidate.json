@@ -1,0 +1,6 @@
+{
+    "firstName":"John",
+    "lastName":"Hathaway",
+    "email":"j@gmail.com",
+    "filePath":"cypress/fixtures/Resume.txt"
+}

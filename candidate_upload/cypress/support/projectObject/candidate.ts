@@ -18,17 +18,30 @@ class Candidate {
       this.elements.password().type(password),
       this.elements.loginBTN().click();
   }
-  uploadFile(filePath: string) {
-    this.elements.addCandidateBtn().click();
-    this.elements.firstName().type("John");
-    this.elements.lastName().type("Hathaway");
-    this.elements.email().type("j@gmail.com");
-    this.elements.uploadFile().selectFile(filePath, { force: true });
-    this.elements.saveBtn().click();
-    this.elements.loadingSpinner().should("not.exist");
-    this.elements
-      .assert()
-      .should("contain", filePath.substring(filePath.lastIndexOf("/") + 1));
+  addCandidate() {
+    cy.get('@fileUpload').then((candidate:any)=>{
+      this.elements.addCandidateBtn().click();
+      this.elements.firstName().type(candidate.firstName);
+      this.elements.lastName().type(candidate.lastName);
+      this.elements.email().type(candidate.email);
+    })
   }
-}
+    uploadFile(filePath:string){
+
+      this.elements.uploadFile().selectFile(filePath, { force: true });
+      this.elements.saveBtn().click();
+    }
+
+    assertFile(){
+    cy.get('@fileUpload').then((file:any)=>{
+
+      this.elements.loadingSpinner().should("not.exist");
+      this.elements
+        .assert()
+        .should("contain", file.filePath.substring(file.filePath.lastIndexOf("/") + 1));
+    })
+  }
+  
+  }
+
 export default Candidate;
