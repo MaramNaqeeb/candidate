@@ -1,3 +1,5 @@
+import { candidateId } from "../helpers/apiHelpers";
+
 class Candidate {
   elements = {
     userName: () => cy.getByCy("Username"),
@@ -18,8 +20,8 @@ class Candidate {
     amOrPm: () => cy.get('[name="pm"]'),
     note: () => cy.getByCy("Type here"),
     submitBtn: () => cy.get('[type="submit"]'),
+    loadingIndicator: () => cy.get(".oxd-loading-spinner-container"),
   };
-  
 
   loginFUNC(userName: string, password: string) {
     this.elements.userName().type(userName),
@@ -27,18 +29,19 @@ class Candidate {
       this.elements.loginBTN().click({ force: true });
   }
   scheduleInterview() {
+    this.elements.loadingIndicator().should("not.exist");
     this.elements.interviewBtn().click({ force: true });
 
     this.elements.interviewTitle().type("Testing");
-    this.elements.interviewerIcon().type("j");
+    this.elements.interviewerIcon().type("a");
     cy.intercept(
-      "/web/index.php/api/v2/recruitment/interviewers?nameOrId=j"
+      "/web/index.php/api/v2/recruitment/interviewers?nameOrId=a"
     ).as("interviewer");
     cy.wait("@interviewer");
     this.elements.interviewrMenu().click();
 
     this.elements.dateIcon().click({ force: true });
-    this.elements.dateSelection().contains(14).click();
+    this.elements.dateSelection().contains(14).click({ force: true });
 
     this.elements.timeIcon().click({ force: true });
     this.elements.hours().click();
@@ -47,6 +50,9 @@ class Candidate {
 
     this.elements.note().type("good");
     this.elements.submitBtn().click();
+    this.elements.loadingIndicator().should("not.exist");
+    cy.get('.oxd-text.oxd-text--p.oxd-text--subtitle-2').should('contain','Status: Interview Scheduled')
+    // cy.contains('Interview Scheduled').should('exist')
   }
 }
 
