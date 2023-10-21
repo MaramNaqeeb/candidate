@@ -23,7 +23,7 @@ class Candidate {
   uploadFile(filePath: string) {
     this.elements.addCandidateBtn().click();
     this.elements.firstName().type("John");
-    this.elements.lastName().type("Thathaway");
+    this.elements.lastName().type("Hathaway");
     this.elements.email().type("j@gmail.com");
     this.elements.uploadIcon().click();
     this.elements.uploadFile().selectFile(filePath, { force: true });
