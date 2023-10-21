@@ -13,4 +13,5 @@ describe("OrangeHRM-create and edit vacancy", () => {
     cy.visit("/web/index.php/recruitment/viewCandidates");
     candidateObj.uploadFile(filepath);
   });
+  
 });

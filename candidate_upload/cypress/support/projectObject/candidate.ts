@@ -33,6 +33,5 @@ class Candidate {
       .assert()
       .should("contain", filePath.substring(filePath.lastIndexOf("/") + 1));
   }
-  
 }
 export default Candidate;
