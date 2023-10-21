@@ -28,7 +28,7 @@ class Candidate {
     this.elements.uploadIcon().click();
     this.elements.uploadFile().selectFile(filePath, { force: true });
     this.elements.saveBtn().click();
-    this.elements.loadingSpinner();
+    this.elements.loadingSpinner().should("not.exist");
     this.elements
       .assert()
       .should("contain", filePath.substring(filePath.lastIndexOf("/") + 1));
